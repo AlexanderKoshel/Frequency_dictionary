@@ -1,23 +1,16 @@
+"""Strict decoding: an unreadable file must never silently change the dictionary."""
 from pathlib import Path
+from .text_finder import define_path, find_all_texts
 
-def define_path():
-    cwd = Path.cwd()
-    path = cwd.parent / "texts"
-    return path
-        
-def load_from_folder(folderpath=None):
-    if folderpath == None:
-        folderpath = define_path()
 
-    text_list = []
+def iter_text_chunks(filepath, encoding="utf-8-sig", chunk_size=65536):
+    if chunk_size <= 0:
+        raise ValueError("Размер блока должен быть положительным")
+    with Path(filepath).open(encoding=encoding) as source:
+        while chunk := source.read(chunk_size):
+            yield chunk
 
-    try:
-        for filepath in folderpath.rglob("*.txt"):
-            with open(filepath) as textfile:
-                text = textfile.read()
-                text_list.append(text)
-        
-    except Exception as e:
-        return f"Error with reading the {filepath.name} in {Path(filepath.parent)}: {e}"
 
-    return text_list
+def load_from_folder(folderpath=None, encoding="utf-8-sig"):
+    """Compatibility helper; large corpora should use iter_text_chunks instead."""
+    return ["".join(iter_text_chunks(p, encoding)) for p in find_all_texts(folderpath)]
