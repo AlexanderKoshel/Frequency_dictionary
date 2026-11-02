@@ -1,7 +1,3 @@
-"""Optional capacity check: python -m tests.benchmark_import is not required.
-Run from the repository root: python tests/benchmark_import.py.
-Synthetic repetitions test counting capacity only; they are NOT real corpora.
-"""
 from pathlib import Path
 import sys
 import tempfile

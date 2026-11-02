@@ -1,4 +1,3 @@
-"""Run with python -m src.main or python src/main.py."""
 import argparse
 import json
 import sqlite3
