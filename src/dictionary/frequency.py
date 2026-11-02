@@ -1,4 +1,3 @@
-"""Stream corpora into bounded batches; roll back a whole file on any error."""
 import hashlib
 from collections import Counter
 from pathlib import Path
@@ -11,7 +10,6 @@ def import_file(repository, path, language, encoding="utf-8-sig", progress=None,
     if batch_size <= 0:
         raise ValueError("Размер пакета должен быть положительным")
     path = Path(path)
-    # Remember the content hash for duplicate detection; verify it again before commit.
     with path.open("rb") as source:
         digest = hashlib.file_digest(source, "sha256").hexdigest()
     if repository.connection.execute("SELECT 1 FROM imports WHERE language=? AND digest=?", (language, digest)).fetchone():
@@ -28,7 +26,6 @@ def import_file(repository, path, language, encoding="utf-8-sig", progress=None,
                 if progress:
                     progress(total)
         repository.add_counts(language, counts)
-        # Detect edits made between hashing and reading before committing anything.
         with path.open("rb") as source:
             if hashlib.file_digest(source, "sha256").hexdigest() != digest:
                 raise ValueError("Файл изменился во время импорта; повторите операцию")

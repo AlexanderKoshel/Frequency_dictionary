@@ -1,4 +1,3 @@
-"""Desktop UI; corpus imports run on a separate thread and connection."""
 import sqlite3
 from PySide6.QtCore import QThread, Signal, Qt
 from PySide6.QtWidgets import (

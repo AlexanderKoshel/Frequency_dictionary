@@ -1,4 +1,3 @@
-"""Word forms, without stemming; retain internal hyphens and apostrophes."""
 import re
 import unicodedata
 
@@ -24,7 +23,6 @@ def tokenize(text, language):
     pattern = word_pattern(language)
     for match in CANDIDATE.finditer(normalize(text)):
         word = match.group()
-        # Reject mixed alphabets instead of importing fragments of foreign words.
         if pattern.fullmatch(word):
             yield word
 
@@ -37,7 +35,6 @@ def validate_word(word, language):
 
 
 def iter_words(chunks, language):
-    """Carry the final token across read boundaries (including combining marks)."""
     pending = ""
     for chunk in chunks:
         text = pending + chunk

@@ -1,4 +1,3 @@
-"""Headless UI smoke tests; the core suite also runs without Qt installed."""
 import os
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 from pathlib import Path

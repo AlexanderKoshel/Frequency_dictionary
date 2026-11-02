@@ -1,4 +1,3 @@
-"""SQLite storage. All mutations are transactional; SQL sort keys are allowlisted."""
 import sqlite3
 from pathlib import Path
 from ..parser.tokenizer import LANGUAGES, normalize, validate_word
@@ -6,7 +5,6 @@ from ..parser.tokenizer import LANGUAGES, normalize, validate_word
 TARGET = 5_000_000
 
 
-# Explicit language order, including ё after е and Belarusian і/ў.
 ALPHABET_RANKS = {letter: index for index, letter in enumerate("абвгдеёжзіийклмнопрстуўфхцчшщъыьэюя")}
 
 
@@ -67,7 +65,6 @@ class Repository:
             self.connection.execute("DELETE FROM words WHERE language=? AND word=?", (language, word))
 
     def add_counts(self, language, counts):
-        """Internal batch operation; caller owns the transaction."""
         self.check_language(language)
         self.connection.executemany("""
             INSERT INTO words VALUES (?, ?, ?)
@@ -80,7 +77,6 @@ class Repository:
             raise ValueError("Некорректные параметры страницы")
         order = "DESC" if descending else "ASC"
         key = "word COLLATE ALPHABET" if sort == "word" else "frequency"
-        # Literal prefix: %, _ and SQL syntax cannot become wildcards or commands.
         prefix = normalize(prefix.strip())
         where = "language=?"
         args = [language]
