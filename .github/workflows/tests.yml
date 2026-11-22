@@ -1,5 +1,8 @@
 name: Tests
 on: [push, pull_request]
+defaults:
+  run:
+    working-directory: work-01
 jobs:
   core:
     runs-on: ubuntu-latest
