@@ -1,0 +1,208 @@
+{
+  "language": "en",
+  "files": [
+    {
+      "name": "test_text_0.txt",
+      "sha256": "2ba5ff898c2fb59aea8bafbc95773e077dde05a3d38446c0f38df319732d4a33"
+    }
+  ],
+  "encoding": "utf-8-sig",
+  "segment_sizes": [
+    280,
+    280,
+    280,
+    280
+  ],
+  "tokens": 1120,
+  "function_words": [
+    "a",
+    "about",
+    "above",
+    "across",
+    "after",
+    "against",
+    "along",
+    "also",
+    "although",
+    "among",
+    "an",
+    "and",
+    "around",
+    "as",
+    "at",
+    "because",
+    "before",
+    "behind",
+    "below",
+    "beneath",
+    "beside",
+    "between",
+    "beyond",
+    "but",
+    "by",
+    "despite",
+    "down",
+    "during",
+    "even",
+    "except",
+    "for",
+    "from",
+    "if",
+    "in",
+    "inside",
+    "into",
+    "just",
+    "near",
+    "nor",
+    "not",
+    "of",
+    "off",
+    "on",
+    "only",
+    "onto",
+    "or",
+    "out",
+    "outside",
+    "over",
+    "past",
+    "per",
+    "since",
+    "so",
+    "than",
+    "that",
+    "the",
+    "though",
+    "through",
+    "throughout",
+    "to",
+    "too",
+    "toward",
+    "towards",
+    "under",
+    "underneath",
+    "unless",
+    "until",
+    "upon",
+    "when",
+    "whereas",
+    "whether",
+    "while",
+    "with",
+    "within",
+    "without",
+    "yet"
+  ],
+  "changed_forms": 127,
+  "variants": {
+    "forms": {
+      "unique": 431,
+      "zipf": {
+        "c": 244,
+        "q1": 190.5,
+        "q3": 323.5,
+        "min_product": 86,
+        "max_product": 431,
+        "log_slope": -0.7517088611034434
+      },
+      "length": {
+        "words": 47,
+        "spearman": -0.5533644336706334,
+        "fit": {
+          "c": 10,
+          "q1": 6.0,
+          "q3": 21.5,
+          "min_product": 2,
+          "max_product": 258,
+          "log_slope": -1.4131102400575886
+        }
+      },
+      "top_dispersion": [
+        [
+          "the",
+          76785.71428571429,
+          1,
+          84.17009468475804
+        ],
+        [
+          "and",
+          41071.42857142857,
+          2,
+          89.65010372674949
+        ],
+        [
+          "of",
+          31250.0,
+          3,
+          71.47623022500582
+        ],
+        [
+          "she",
+          30357.14285714286,
+          4,
+          77.7297711929401
+        ],
+        [
+          "a",
+          24107.14285714286,
+          5,
+          71.3910364783791
+        ]
+      ]
+    },
+    "lemmas": {
+      "unique": 386,
+      "zipf": {
+        "c": 234.0,
+        "q1": 192.0,
+        "q3": 290.75,
+        "min_product": 86,
+        "max_product": 386,
+        "log_slope": -0.8094800865213491
+      },
+      "length": {
+        "words": 46,
+        "spearman": -0.560835453538853,
+        "fit": {
+          "c": 10.0,
+          "q1": 6.0,
+          "q3": 21.75,
+          "min_product": 2,
+          "max_product": 258,
+          "log_slope": -1.4849514158954642
+        }
+      },
+      "top_dispersion": [
+        [
+          "the",
+          76785.71428571429,
+          1,
+          84.17009468475804
+        ],
+        [
+          "and",
+          41071.42857142857,
+          2,
+          89.65010372674949
+        ],
+        [
+          "be",
+          34821.42857142857,
+          3,
+          91.24192242225675
+        ],
+        [
+          "of",
+          31250.0,
+          4,
+          71.47623022500582
+        ],
+        [
+          "she",
+          30357.14285714286,
+          5,
+          77.7297711929401
+        ]
+      ]
+    }
+  }
+}
