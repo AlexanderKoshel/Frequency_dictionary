@@ -97,12 +97,12 @@ def caption(doc, text, centered):
     run.bold, run.font.size = True, Pt(12)
 
 
-def figure(doc, path, label):
+def figure(doc, path, label, width=16.5):
     paragraph = doc.add_paragraph()
     paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
     paragraph.paragraph_format.line_spacing = 1.0
     paragraph.paragraph_format.keep_with_next = True
-    paragraph.add_run().add_picture(str(path), width=Cm(16.5))
+    paragraph.add_run().add_picture(str(path), width=Cm(width))
     caption(doc, label, centered=True)
 
 

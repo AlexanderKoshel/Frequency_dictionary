@@ -11,7 +11,7 @@ CONTINUATION = "Задание 3. Русский корпус"
 
 
 def count_text(value):
-    return f"{value:,}".replace(",", " ")
+    return f"{value:,}".replace(",", "\u00a0")
 
 
 def read_summary(folder, language):
@@ -48,7 +48,7 @@ def dataset_overview(doc, summaries, source):
 def comparison_figures(doc, runs, image, start, subject):
     for index, (folder, summary) in enumerate(runs, start):
         language = LANGUAGES[summary["language"]].lower()
-        figure(doc, folder / f"{image}.png", f"Рисунок {index} — {subject}, {language}")
+        figure(doc, folder / f"{image}.png", f"Рисунок {index} — {subject}, {language}", width=12)
 
 
 def rank_comparison(doc, runs):
