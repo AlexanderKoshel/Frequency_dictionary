@@ -137,7 +137,7 @@ def table(doc, title, headings, rows, widths):
                 cell._tc.get_or_add_tcPr().append(shading)
 
 
-def cover_and_contents(doc, summary, author_info):
+def cover(doc, author_info):
     for line in ("Белорусский государственный университет",
                  "Факультет прикладной математики и информатики",
                  "Кафедра информационных систем управления"):
@@ -155,11 +155,19 @@ def cover_and_contents(doc, summary, author_info):
     city = doc.add_paragraph("Минск, 2026")
     city.alignment = WD_ALIGN_PARAGRAPH.CENTER
     city.paragraph_format.space_before = Pt(116)
+
+
+def contents(doc, headings):
     doc.add_heading("СОДЕРЖАНИЕ", 1)
-    for page, heading in enumerate(HEADINGS, 3):
+    for page, heading in enumerate(headings, 3):
         paragraph = doc.add_paragraph(f"{heading}\t{page}")
         paragraph.paragraph_format.tab_stops.add_tab_stop(Cm(17), WD_TAB_ALIGNMENT.RIGHT,
                                                          WD_TAB_LEADER.DOTS)
+
+
+def cover_and_contents(doc, summary, author_info):
+    cover(doc, author_info)
+    contents(doc, HEADINGS)
     language = LANGUAGES[summary["language"]].lower()
     tokens = f"{summary['tokens']:_}".replace("_", " ")
     doc.add_paragraph(f"Язык корпуса — {language}. Число словоупотреблений — {tokens}. "

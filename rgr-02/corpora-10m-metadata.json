@@ -1,0 +1,14 @@
+{
+  "en": {
+    "tokens": 10000136,
+    "articles": 4164,
+    "bytes": 65962235,
+    "sha256": "b4dcbf506f87dd8941cf5229aa25c6c13dba4458a41d3b84f141aa3358b52731"
+  },
+  "ru": {
+    "tokens": 10001099,
+    "articles": 6523,
+    "bytes": 149325477,
+    "sha256": "9bf367a6e02f64f2c6ca81c8896b8762687f39a4a8c8bc6171b4b39e40a977cc"
+  }
+}

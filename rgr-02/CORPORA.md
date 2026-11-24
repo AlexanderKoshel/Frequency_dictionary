@@ -42,3 +42,19 @@ git clone --depth 1 --branch r2.17 https://github.com/UniversalDependencies/UD_B
 Источник текстов — [Wikimedia Wikipedia](https://huggingface.co/datasets/wikimedia/wikipedia/tree/b04c8d1ceb2f5cd4588862100d08de323dccfbaa), срез `20231101`, ревизия `b04c8d1ceb2f5cd4588862100d08de323dccfbaa`. Тексты и авторство принадлежат участникам Википедии. Лицензия текстов — [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). URL статей и доступ к истории их авторства указаны в `sources.csv` каждого корпуса.
 
 Тексты взяты из начала первого шарда каждого языка в исходном порядке. При сборке удалены внешние пробельные символы, переводы строк приведены к LF, статьи разделены пустой строкой. Целые статьи и порядок учитываются при расчёте сегментов. Корпуса относятся к энциклопедическому жанру, а выборка зависит от порядка статей в срезе. Объёмы и контрольные суммы файлов приведены в [corpora-metadata.json](corpora-metadata.json). Исходный английский текст `work-01` используется для отдельного исторического прогона из папки `example`.
+
+## Сравнение английского и русского корпусов по 10 млн словоупотреблений
+
+В PowerShell из `rgr-02` с активным окружением `rgr02`:
+
+```powershell
+python -m pip install -r requirements.txt -r requirements-corpus.txt
+python prepare_corpus.py en ru --words 10000000 --out .\data\corpora-10m
+python main.py en .\data\corpora-10m\en --out .\out\10m-en
+python main.py ru .\data\corpora-10m\ru --out .\out\10m-ru
+python compare_reports.py --en .\out\10m-en --ru .\out\10m-ru --author "Фамилия Имя Отчество" --course 3 --group 12 --source "Источник — английская и русская Википедии, срез Wikimedia 20231101."
+```
+
+Загрузка нужна один раз. Результаты обоих расчётов хранятся в `out/10m-en` и `out/10m-ru`. Итоговый документ — `out/RGR2_EN_RU.docx`. Сверить объём и SHA-256 можно с [corpora-10m-metadata.json](corpora-10m-metadata.json).
+
+Для EDU сохрани итоговый документ из Word в формате «Документ Word 97–2003 (*.doc)». Полные CSV находятся в каталогах результатов и позволяют проверить числа из отчёта.
