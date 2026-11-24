@@ -1,0 +1,36 @@
+{
+  "sample": {
+    "en": {
+      "tokens": 31237,
+      "articles": 5,
+      "bytes": 206553,
+      "sha256": "a56fbe5265c2e68ff728adccd184bc09002e274ec6190a2e9756e2a63be75ce8"
+    },
+    "ru": {
+      "tokens": 27029,
+      "articles": 3,
+      "bytes": 398389,
+      "sha256": "b838a0b1a92ced9baee4b87dccf7f37fbc5b3e3ec4b3c4415a14ce785cc4f32a"
+    }
+  },
+  "full": {
+    "en": {
+      "tokens": 5000670,
+      "articles": 1547,
+      "bytes": 33183777,
+      "sha256": "4127025ff9237f98c56dfdb949931d18bb56d3453a37cf16c028121606e97b2f"
+    },
+    "ru": {
+      "tokens": 5001627,
+      "articles": 2494,
+      "bytes": 74758393,
+      "sha256": "bd7111592ea47b6f067b7d75bd1e2fca2b3282f85f11d29c925a702cdb1dd5c7"
+    },
+    "be": {
+      "tokens": 5001066,
+      "articles": 15790,
+      "bytes": 73138685,
+      "sha256": "ad497d4c3fce9ef28c52e71e73caaee33609614e95f0ed23a6b9d887e4d3bd1a"
+    }
+  }
+}
